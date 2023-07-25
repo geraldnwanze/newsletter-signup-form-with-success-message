@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import NewsLetter from "./components/NewsLetter";
+import Success from "./components/Success";
 
-function App() {
+const App = () => {
+  const [newsLetter, setNewsLetter] = useState(false);
+
+  const display = newsLetter ? <Success subscribe={setNewsLetter} /> : <NewsLetter subscribe={setNewsLetter} />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full h-screen bg-gray-800 flex items-center">
+      { display }
     </div>
-  );
+  )
 }
 
 export default App;
